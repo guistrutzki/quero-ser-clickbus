@@ -16,7 +16,6 @@ class TabBarController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // MARK: - Appearance
         if #available(iOS 15, *) {
             let tabBarAppearance = UITabBarAppearance()
             tabBarAppearance.backgroundColor = .systemGray6
@@ -24,16 +23,19 @@ class TabBarController: UITabBarController {
             tabBar.scrollEdgeAppearance = tabBarAppearance
         } else {
             tabBar.barTintColor = .systemGray6
-            
         }
         
-        // MARK: - VCs
-        let homeTab = UINavigationController(rootViewController:  HomeVC())
-        let homeIcon = UITabBarItem(title: "Home",
-                                    image: UIImage(systemName: "house"),
+        let homeVC = HomeVC()
+        HomeConfigurator.configureModule(viewController: homeVC)
+        let homeTab = UINavigationController(rootViewController: homeVC)
+        homeTab.navigationBar.prefersLargeTitles = true
+        homeTab.navigationBar.barStyle = .black
+        let homeIcon = UITabBarItem(title: Txt.home,
+                                    image: SFSymbols.home,
                                     tag: 0)
         homeTab.tabBarItem = homeIcon
         
         self.setViewControllers([homeTab], animated: false)
+        
     }
 }
