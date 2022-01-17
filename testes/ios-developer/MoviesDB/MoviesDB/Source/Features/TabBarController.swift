@@ -26,16 +26,17 @@ class TabBarController: UITabBarController {
         }
         
         let homeVC = HomeVC()
+        
+        let navigationController = UINavigationController(rootViewController: homeVC)
         HomeConfigurator.configureModule(viewController: homeVC)
-        let homeTab = UINavigationController(rootViewController: homeVC)
-        homeTab.navigationBar.prefersLargeTitles = true
-        homeTab.navigationBar.barStyle = .black
+        
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationBar.barStyle = .black
         let homeIcon = UITabBarItem(title: Txt.home,
                                     image: SFSymbols.home,
                                     tag: 0)
-        homeTab.tabBarItem = homeIcon
+        navigationController.tabBarItem = homeIcon
         
-        self.setViewControllers([homeTab], animated: false)
-        
+        self.setViewControllers([navigationController], animated: false)
     }
 }

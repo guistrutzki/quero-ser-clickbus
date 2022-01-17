@@ -10,15 +10,17 @@ import UIKit
 protocol HomePresenterOutput: AnyObject {
     func presenter(didRetrieveMovies items: [MovieCardCellModel])
     func presenter(didFailRetrieveItems message: String)
+    
+    func presenter(didObtainMovieId id: Int)
+    func presenter(didFailObtainMovieId message: String)
 }
 
 class HomeVC: UIViewController {
     var homeView: HomeView?
     var interactor: HomeInteractor?
+    var router: HomeRouter?
     
     private var movies: [MovieCardCellModel] = []
-    
-//    var router: HomeRouter?
     
     override func loadView() {
         super.loadView()
@@ -38,6 +40,10 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC: HomePresenterOutput {
+    func presenter(didObtainMovieId id: Int) {
+        router?.routeToDetail(with: String(id))
+    }
+    
     func presenter(didRetrieveMovies items: [MovieCardCellModel]) {
         self.movies = items
         homeView?.tableView.reloadData()
@@ -47,7 +53,9 @@ extension HomeVC: HomePresenterOutput {
         print(message)
     }
     
-    
+    func presenter(didFailObtainMovieId message: String) {
+        print(message)
+    }
 }
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
@@ -63,5 +71,9 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
         cell.updateView(with: movies[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.interactor?.didSelectRow(at: indexPath.row)
     }
 }

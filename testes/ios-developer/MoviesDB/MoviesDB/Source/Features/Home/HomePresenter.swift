@@ -11,6 +11,8 @@ import Alamofire
 protocol HomePresenter: AnyObject {
     func interactor(didRetrieveMovies movies: [Movie])
     func interactor(didFailRetrieveMovies error: AFError)
+    
+    func interactor(didFindMovie movie: Movie)
 }
 
 class HomePresenterImplementation: HomePresenter {
@@ -26,5 +28,9 @@ class HomePresenterImplementation: HomePresenter {
     
     func interactor(didFailRetrieveMovies error: AFError) {
         viewController?.presenter(didFailRetrieveItems: error.localizedDescription)
+    }
+    
+    func interactor(didFindMovie movie: Movie) {
+        viewController?.presenter(didObtainMovieId: movie.id)
     }
 }

@@ -44,6 +44,10 @@
 		5B0218C227949C1300E07CC0 /* HomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0218C127949C1300E07CC0 /* HomeConfigurator.swift */; };
 		5B0218C42794EAA300E07CC0 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0218C32794EAA300E07CC0 /* HomeInteractor.swift */; };
 		5B0218C62794F41800E07CC0 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0218C52794F41800E07CC0 /* HomePresenter.swift */; };
+		5B0218C9279523FF00E07CC0 /* MovieDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0218C8279523FF00E07CC0 /* MovieDetailVC.swift */; };
+		5B0218CB2795244500E07CC0 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0218CA2795244500E07CC0 /* MovieDetailView.swift */; };
+		5B0218CD2795409600E07CC0 /* MovieDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0218CC2795409600E07CC0 /* MovieDetailConfigurator.swift */; };
+		5B0218CF2795414A00E07CC0 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0218CE2795414A00E07CC0 /* HomeRouter.swift */; };
 		DB80A9F63D1D9E952F14FD0B /* Pods_MoviesDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9044ADA81BD19DBB307D1C /* Pods_MoviesDB.framework */; };
 		F6CAA144B6365A36721D544B /* Pods_MoviesDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92A9B1D08D39BE7697EDA2F /* Pods_MoviesDBTests.framework */; };
 /* End PBXBuildFile section */
@@ -111,6 +115,10 @@
 		5B0218C127949C1300E07CC0 /* HomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConfigurator.swift; sourceTree = "<group>"; };
 		5B0218C32794EAA300E07CC0 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		5B0218C52794F41800E07CC0 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		5B0218C8279523FF00E07CC0 /* MovieDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailVC.swift; sourceTree = "<group>"; };
+		5B0218CA2795244500E07CC0 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		5B0218CC2795409600E07CC0 /* MovieDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailConfigurator.swift; sourceTree = "<group>"; };
+		5B0218CE2795414A00E07CC0 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		9A8AEC9C72976A58547EA7CF /* Pods-MoviesDBUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesDBUITests.release.xcconfig"; path = "Target Support Files/Pods-MoviesDBUITests/Pods-MoviesDBUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A92A9B1D08D39BE7697EDA2F /* Pods_MoviesDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviesDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA97B8B7A0BC649A0BEC2CF1 /* Pods-MoviesDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesDBTests.release.xcconfig"; path = "Target Support Files/Pods-MoviesDBTests/Pods-MoviesDBTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -260,6 +268,7 @@
 		1599F1BD2530D0E40074241E /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				5B0218C7279523E700E07CC0 /* MovieDetail */,
 				5B0218B327945BA200E07CC0 /* Home */,
 				1599F1582530CC790074241E /* ViewController.swift */,
 				5B0218B127945A7300E07CC0 /* TabBarController.swift */,
@@ -362,6 +371,7 @@
 				5B0218C127949C1300E07CC0 /* HomeConfigurator.swift */,
 				5B0218C32794EAA300E07CC0 /* HomeInteractor.swift */,
 				5B0218C52794F41800E07CC0 /* HomePresenter.swift */,
+				5B0218CE2795414A00E07CC0 /* HomeRouter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -372,6 +382,16 @@
 				5B0218BD27948DDB00E07CC0 /* MovieCardCell.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		5B0218C7279523E700E07CC0 /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+				5B0218C8279523FF00E07CC0 /* MovieDetailVC.swift */,
+				5B0218CA2795244500E07CC0 /* MovieDetailView.swift */,
+				5B0218CC2795409600E07CC0 /* MovieDetailConfigurator.swift */,
+			);
+			path = MovieDetail;
 			sourceTree = "<group>";
 		};
 		BD803DFBAA7CAC61961FC53B /* Frameworks */ = {
@@ -617,8 +637,10 @@
 				1599F1D22530D2580074241E /* MovieAPI.swift in Sources */,
 				1599F2242530DB000074241E /* Crew.swift in Sources */,
 				5B0218BB279489FD00E07CC0 /* ViewCode.swift in Sources */,
+				5B0218CB2795244500E07CC0 /* MovieDetailView.swift in Sources */,
 				5B0218B527945EA700E07CC0 /* HomeVC.swift in Sources */,
 				5B0218C62794F41800E07CC0 /* HomePresenter.swift in Sources */,
+				5B0218C9279523FF00E07CC0 /* MovieDetailVC.swift in Sources */,
 				1599F1E52530D4650074241E /* MovieListResponse.swift in Sources */,
 				5B0218BE27948DDB00E07CC0 /* MovieCardCell.swift in Sources */,
 				5B0218C02794911500E07CC0 /* UITableViewCell+Extensions.swift in Sources */,
@@ -626,9 +648,11 @@
 				1599F2372530E05D0074241E /* GenreListResponse.swift in Sources */,
 				1599F2002530D54F0074241E /* String+Extensions.swift in Sources */,
 				1599F2172530DAB00074241E /* Genre.swift in Sources */,
+				5B0218CF2795414A00E07CC0 /* HomeRouter.swift in Sources */,
 				1599F2292530DB0B0074241E /* Cast.swift in Sources */,
 				1599F2122530DA860074241E /* MovieDetails.swift in Sources */,
 				1599F1552530CC790074241E /* AppDelegate.swift in Sources */,
+				5B0218CD2795409600E07CC0 /* MovieDetailConfigurator.swift in Sources */,
 				1599F1572530CC790074241E /* SceneDelegate.swift in Sources */,
 				1599F2322530DF310074241E /* GenreListWorker.swift in Sources */,
 				1599F1982530CFDB0074241E /* ResquestData.swift in Sources */,
