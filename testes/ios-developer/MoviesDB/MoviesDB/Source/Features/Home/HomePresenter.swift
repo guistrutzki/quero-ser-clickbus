@@ -17,7 +17,7 @@ class HomePresenterImplementation: HomePresenter {
     weak var viewController: HomePresenterOutput?
     
     func interactor(didRetrieveMovies movies: [Movie]) {
-        let movieCellModel = movies.compactMap { MovieCardCellModel(coverImage: UIImage(),
+        let movieCellModel = movies.compactMap { MovieCardCellModel(coverImage: $0.posterPath ?? "",
                                                                     title: $0.title,
                                                                     average: "IMDb: \($0.voteAverage)",
                                                                     votesCount: "Votos: \($0.voteCount)" ) }

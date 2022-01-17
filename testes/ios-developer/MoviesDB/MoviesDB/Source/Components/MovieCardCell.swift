@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import Kingfisher
 
 struct MovieCardCellModel {
-    var coverImage: UIImage
+    var coverImage: String
     var title: String
     var average: String
     var votesCount: String
@@ -17,8 +18,7 @@ struct MovieCardCellModel {
 class MovieCardCell: UITableViewCell {
     private var coverImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .red
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 8
         imageView.clipsToBounds = true
         
@@ -31,7 +31,9 @@ class MovieCardCell: UITableViewCell {
     
     private var title: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 24)
+        label.font = UIFont.boldSystemFont(ofSize: 22)
+        label.contentMode = .scaleToFill
+        label.numberOfLines = 2
         label.textColor = .white
         return label
     }()
@@ -39,7 +41,7 @@ class MovieCardCell: UITableViewCell {
     private var averageLabel: UILabel = {
         let label = UILabel()
         label.textColor = .green
-
+        
         return label
     }()
     
@@ -76,12 +78,12 @@ class MovieCardCell: UITableViewCell {
         let votesAttributedString = NSMutableAttributedString.init(string: votesCountLabel.text ?? "")
         
         let rangeImdb = NSString(string: averageLabel.text ?? "")
-            .range(of: "IMDb", options: String.CompareOptions.caseInsensitive)
+            .range(of: "IMDb:", options: String.CompareOptions.caseInsensitive)
         let rangeVotes = NSString(string: votesCountLabel.text ?? "")
-            .range(of: "Votos", options: String.CompareOptions.caseInsensitive)
+            .range(of: "Votos:", options: String.CompareOptions.caseInsensitive)
         
         let attributes:[NSAttributedString.Key : Any] = [.foregroundColor : UIColor.white,
-                                                         .font : UIFont.boldSystemFont(ofSize: 18) ]
+                                                         .font : UIFont.systemFont(ofSize: 18, weight: .semibold)]
         imdbAttributedString.addAttributes(attributes, range: rangeImdb)
         votesAttributedString.addAttributes(attributes, range: rangeVotes)
         
@@ -89,12 +91,29 @@ class MovieCardCell: UITableViewCell {
         votesCountLabel.attributedText = votesAttributedString
     }
     
+    private func loadImage(_ imagePath: String) {
+        coverImageView.kf.indicatorType = .activity
+        let retry = DelayRetryStrategy(maxRetryCount: 5,
+                                       retryInterval: .seconds(3))
+        coverImageView.kf.setImage(with: URL(string: MovieAPI.build(image: imagePath, size: .w200)),
+                                   options: [.retryStrategy(retry),
+                                             .transition(ImageTransition
+                                                            .fade(2))]) { result in
+            switch result {
+            case .failure:
+                self.coverImageView.image = #imageLiteral(resourceName: "placeholder-image")
+            default: break
+            }
+        }
+    }
+    
     public func updateView(with configuration: MovieCardCellModel) {
         title.text = configuration.title
-        coverImageView.image = configuration.coverImage
         averageLabel.text = configuration.average
         votesCountLabel.text = configuration.votesCount
+        loadImage(configuration.coverImage)
         configTextValue()
+        
     }
 }
 
@@ -113,12 +132,12 @@ extension MovieCardCell: ViewCode {
         }
         
         title.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
-            make.leading.equalToSuperview()
+            make.top.equalToSuperview().offset(10)
+            make.leading.trailing.equalToSuperview()
         }
         
         averageLabel.snp.makeConstraints { make in
-            make.top.equalTo(title.snp.bottom).offset(8)
+            make.top.equalTo(title.snp.bottom).offset(15)
             make.leading.equalToSuperview()
         }
         
