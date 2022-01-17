@@ -8,13 +8,16 @@
 import UIKit
 
 protocol HomePresenterOutput: AnyObject {
-    func presenter(didRetrieveMovies items: [String])
+    func presenter(didRetrieveMovies items: [MovieCardCellModel])
     func presenter(didFailRetrieveItems message: String)
 }
 
 class HomeVC: UIViewController {
     var homeView: HomeView?
-//    var interactor: HomeInteractor?
+    var interactor: HomeInteractor?
+    
+    private var movies: [MovieCardCellModel] = []
+    
 //    var router: HomeRouter?
     
     override func loadView() {
@@ -29,11 +32,28 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        interactor?.viewDidLoad()
     }
 }
 
+extension HomeVC: HomePresenterOutput {
+    func presenter(didRetrieveMovies items: [MovieCardCellModel]) {
+        self.movies = items
+        homeView?.tableView.reloadData()
+    }
+    
+    func presenter(didFailRetrieveItems message: String) {
+        print(message)
+    }
+    
+    
+}
+
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { 4 }
+    func numberOfSections(in tableView: UITableView) -> Int { 1 }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { movies.count }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView
@@ -41,10 +61,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
                    return UITableViewCell()
                 }
         cell.selectionStyle = .none
-        cell.updateView(with: MovieCardCellModel(coverImage: UIImage(),
-                                                 title: "Senhor dos aneis",
-                                                 average: "IMDb: 8,0",
-                                                 votesCount: "Votos: 2323"))
+        cell.updateView(with: movies[indexPath.row])
         return cell
     }
 }
