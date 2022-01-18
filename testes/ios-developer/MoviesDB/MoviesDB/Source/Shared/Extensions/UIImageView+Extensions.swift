@@ -11,8 +11,8 @@ import Kingfisher
 extension UIImageView {
     func loadImage(path imagePath: String, size: MovieAPI.ImageSize) {
         self.kf.indicatorType = .activity
-        let retry = DelayRetryStrategy(maxRetryCount: 5,
-                                       retryInterval: .seconds(3))
+        let retry = DelayRetryStrategy(maxRetryCount: 2,
+                                       retryInterval: .seconds(1))
         self.kf.setImage(with: URL(string: MovieAPI.build(image: imagePath, size: size)),
                                    options: [.retryStrategy(retry),
                                              .transition(ImageTransition

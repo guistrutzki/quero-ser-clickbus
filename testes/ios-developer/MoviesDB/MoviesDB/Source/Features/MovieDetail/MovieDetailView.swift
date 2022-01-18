@@ -12,14 +12,17 @@ class MovieDetailView: UIView {
         let scrollView = UIScrollView(frame: .zero)
         scrollView.showsVerticalScrollIndicator = false
         scrollView.backgroundColor = Theme.dark
-//        scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
         return scrollView
     }()
     
-    private let contentView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        return view
+    private let contentView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.backgroundColor = .clear
+        stackView.axis = .vertical
+        stackView.spacing = 16
+        return stackView
     }()
     
     private let coverImageView: UIImageView = {
@@ -35,7 +38,7 @@ class MovieDetailView: UIView {
     
     let backNavigationView: UIView = {
         let view = UIView()
-        view.backgroundColor = Theme.light_20
+        view.backgroundColor = Theme.light_30
         view.layer.cornerRadius = 25
         return view
     }()
@@ -242,6 +245,7 @@ class MovieDetailView: UIView {
         stackView.axis = .vertical
         stackView.spacing = 12
         stackView.setCustomSpacing(16, after: dividerView)
+        stackView.setCustomSpacing(40, after: crewImageGallery)
         return stackView
     }()
     
@@ -270,19 +274,19 @@ class MovieDetailView: UIView {
 extension MovieDetailView: ViewCode {
     func configureSubviews() {
         addSubview(scrollView)
+        addSubview(backNavigationView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(coverImageView)
+        contentView.addArrangedSubview(coverImageView)
         contentView.addSubview(imageLayerView)
-        imageLayerView.addSubview(backNavigationView)
         backNavigationView.addSubview(backIconImageView)
-        contentView.addSubview(titleSectionStackView)
+        contentView.addArrangedSubview(titleSectionStackView)
         titleDetailView.addSubview(durationStackView)
         titleDetailView.addSubview(ratingStackView)
-        contentView.addSubview(generalSectionStackView)
-        contentView.addSubview(aboutDividerView)
-        contentView.addSubview(aboutSectionStackView)
-        contentView.addSubview(castStackView)
-        contentView.addSubview(crewStackView)
+        contentView.addArrangedSubview(generalSectionStackView)
+        contentView.addArrangedSubview(aboutDividerView)
+        contentView.addArrangedSubview(aboutSectionStackView)
+        contentView.addArrangedSubview(castStackView)
+        contentView.addArrangedSubview(crewStackView)
     }
     
     func configureSubviewsConstraints() {
@@ -291,10 +295,8 @@ extension MovieDetailView: ViewCode {
         }
         
         contentView.snp.makeConstraints { (make) in
-            make.top.bottom.equalTo(self.scrollView)
-            make.left.right.equalTo(self)
+            make.top.bottom.leading.trailing.equalTo(self.scrollView)
             make.width.equalTo(self.scrollView)
-            make.height.equalTo(self.scrollView)
         }
         
         coverImageView.snp.makeConstraints { make in
