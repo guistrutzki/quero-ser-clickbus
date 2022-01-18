@@ -12,7 +12,7 @@ class HomeView: UIView {
         let tableView = UITableView()
         tableView.register(MovieCardCell.self, forCellReuseIdentifier: MovieCardCell.classIdentifier())
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        tableView.backgroundColor = .black
+        tableView.backgroundColor = Theme.dark
         return tableView
     }()
     

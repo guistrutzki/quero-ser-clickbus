@@ -48,6 +48,11 @@
 		5B0218CB2795244500E07CC0 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0218CA2795244500E07CC0 /* MovieDetailView.swift */; };
 		5B0218CD2795409600E07CC0 /* MovieDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0218CC2795409600E07CC0 /* MovieDetailConfigurator.swift */; };
 		5B0218CF2795414A00E07CC0 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0218CE2795414A00E07CC0 /* HomeRouter.swift */; };
+		5B0218D127961D6300E07CC0 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0218D027961D6300E07CC0 /* UIColor+Extensions.swift */; };
+		5B658A8527963003003EF013 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B658A8227962DCA003EF013 /* Poppins-Bold.ttf */; };
+		5B658A8627963006003EF013 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B658A8327962DCA003EF013 /* Poppins-Medium.ttf */; };
+		5B658A8727963008003EF013 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B658A8427962DCB003EF013 /* Poppins-Regular.ttf */; };
+		5B658A892796457E003EF013 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B658A882796457E003EF013 /* DividerView.swift */; };
 		DB80A9F63D1D9E952F14FD0B /* Pods_MoviesDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9044ADA81BD19DBB307D1C /* Pods_MoviesDB.framework */; };
 		F6CAA144B6365A36721D544B /* Pods_MoviesDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92A9B1D08D39BE7697EDA2F /* Pods_MoviesDBTests.framework */; };
 /* End PBXBuildFile section */
@@ -119,6 +124,11 @@
 		5B0218CA2795244500E07CC0 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		5B0218CC2795409600E07CC0 /* MovieDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailConfigurator.swift; sourceTree = "<group>"; };
 		5B0218CE2795414A00E07CC0 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		5B0218D027961D6300E07CC0 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		5B658A8227962DCA003EF013 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		5B658A8327962DCA003EF013 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		5B658A8427962DCB003EF013 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		5B658A882796457E003EF013 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		9A8AEC9C72976A58547EA7CF /* Pods-MoviesDBUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesDBUITests.release.xcconfig"; path = "Target Support Files/Pods-MoviesDBUITests/Pods-MoviesDBUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A92A9B1D08D39BE7697EDA2F /* Pods_MoviesDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviesDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA97B8B7A0BC649A0BEC2CF1 /* Pods-MoviesDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesDBTests.release.xcconfig"; path = "Target Support Files/Pods-MoviesDBTests/Pods-MoviesDBTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -249,6 +259,7 @@
 		1599F18C2530CE500074241E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5B658A8127962DB1003EF013 /* fonts */,
 				1599F15D2530CC7A0074241E /* Assets.xcassets */,
 				1599F15F2530CC7A0074241E /* LaunchScreen.storyboard */,
 			);
@@ -332,6 +343,7 @@
 				1599F1F72530D52A0074241E /* Date+Extensions.swift */,
 				1599F1FF2530D54F0074241E /* String+Extensions.swift */,
 				5B0218BF2794911500E07CC0 /* UITableViewCell+Extensions.swift */,
+				5B0218D027961D6300E07CC0 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -380,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				5B0218BD27948DDB00E07CC0 /* MovieCardCell.swift */,
+				5B658A882796457E003EF013 /* DividerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -392,6 +405,16 @@
 				5B0218CC2795409600E07CC0 /* MovieDetailConfigurator.swift */,
 			);
 			path = MovieDetail;
+			sourceTree = "<group>";
+		};
+		5B658A8127962DB1003EF013 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5B658A8227962DCA003EF013 /* Poppins-Bold.ttf */,
+				5B658A8327962DCA003EF013 /* Poppins-Medium.ttf */,
+				5B658A8427962DCB003EF013 /* Poppins-Regular.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		BD803DFBAA7CAC61961FC53B /* Frameworks */ = {
@@ -512,7 +535,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1599F1612530CC7A0074241E /* LaunchScreen.storyboard in Resources */,
+				5B658A8627963006003EF013 /* Poppins-Medium.ttf in Resources */,
+				5B658A8527963003003EF013 /* Poppins-Bold.ttf in Resources */,
 				1599F15E2530CC7A0074241E /* Assets.xcassets in Resources */,
+				5B658A8727963008003EF013 /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,8 +650,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1599F1D72530D2EC0074241E /* Section.swift in Sources */,
+				5B0218D127961D6300E07CC0 /* UIColor+Extensions.swift in Sources */,
 				1599F1C12530D1180074241E /* DefaultDecoder.swift in Sources */,
 				1599F1EE2530D4D20074241E /* Movie.swift in Sources */,
+				5B658A892796457E003EF013 /* DividerView.swift in Sources */,
 				5B0218B72794832300E07CC0 /* HomeView.swift in Sources */,
 				1599F1F82530D52A0074241E /* Date+Extensions.swift in Sources */,
 				1599F1B92530D0AB0074241E /* Network.swift in Sources */,

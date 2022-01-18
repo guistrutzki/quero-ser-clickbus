@@ -13,10 +13,20 @@ enum Txt {
 
 enum SFSymbols {
     static let home                     = UIImage(systemName: "house")
+    static let star                     = UIImage(systemName: "star.fill")
+    static let clock                     = UIImage(systemName: "clock")
 }
 
 enum Fonts {
     static let poppinsRegular           = "Poppins-Regular"
     static let poppinsBold              = "Poppins-Bold"
     static let poppinsMedium            = "Poppins-Medium"
+}
+
+enum Theme {
+    static let dark                     = UIColor("#15141F")
+    static let light                    = UIColor("#ffffff")
+    static let grey100                  = UIColor("#515151")
+    static let grey200                  = UIColor("#BCBCBC")
+    static let orange200                = UIColor("#FF8F71")
 }

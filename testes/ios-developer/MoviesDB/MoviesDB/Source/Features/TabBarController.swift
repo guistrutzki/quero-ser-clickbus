@@ -27,8 +27,11 @@ class TabBarController: UITabBarController {
         
         let homeVC = HomeVC()
         
-        let navigationController = UINavigationController(rootViewController: homeVC)
+        let movieDetailVC = MovieDetailVC()
+        
+        let navigationController = UINavigationController(rootViewController: movieDetailVC)
         HomeConfigurator.configureModule(viewController: homeVC)
+        MovieDetailConfigurator.configureModule(titleId: "123", viewController: movieDetailVC)
         
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.barStyle = .black
