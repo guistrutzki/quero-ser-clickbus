@@ -93,12 +93,8 @@ class MovieDetailView: UIView {
         return view
     }()
     
-    private let dividerView: DividerView = {
-        let view = DividerView()
-        return view
-    }()
-    
     private lazy var titleSectionStackView: UIStackView = {
+        let dividerView = DividerView()
         let stackView = UIStackView(arrangedSubviews: [titleLabel, titleDetailView, dividerView])
     
         stackView.axis = .vertical
@@ -138,8 +134,15 @@ class MovieDetailView: UIView {
         return label
     }()
     
+    private let genreCarouselView: GenreCarouselView = {
+        let view = GenreCarouselView()
+        return view
+    }()
+    
     private lazy var genreStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [genreTitleLabel])
+        let stackView = UIStackView(arrangedSubviews: [genreTitleLabel, genreCarouselView])
+        stackView.axis = .vertical
+        stackView.spacing = 8
         return stackView
     }()
     
@@ -148,6 +151,35 @@ class MovieDetailView: UIView {
         stackView.axis = .horizontal
         stackView.alignment = .top
         stackView.spacing = 50
+        return stackView
+    }()
+    
+    private let aboutTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: Fonts.poppinsMedium, size: 16)
+        label.textColor = Theme.light
+        label.text = "Sobre"
+        return label
+    }()
+    
+    private let aboutTextLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: Fonts.poppinsRegular, size: 12)
+        label.textColor = Theme.grey200
+        label.numberOfLines = 0
+        label.text = "Rey (Daisy Ridley) finally manages to find the legendary Jedi knight, Luke Skywalker (Mark Hamill) on an island with a magical aura. The heroes of The Force Awakens including Leia, Finn"
+        return label
+    }()
+    
+    private let aboutDividerView: DividerView = {
+        let view = DividerView()
+        return view
+    }()
+    
+    private lazy var aboutSectionStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [aboutTitleLabel, aboutTextLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 12
         return stackView
     }()
     
@@ -170,6 +202,8 @@ extension MovieDetailView: ViewCode {
         titleDetailView.addSubview(durationStackView)
         titleDetailView.addSubview(ratingStackView)
         contentView.addSubview(generalSectionStackView)
+        contentView.addSubview(aboutDividerView)
+        contentView.addSubview(aboutSectionStackView)
     }
     
     func configureSubviewsConstraints() {
@@ -207,6 +241,18 @@ extension MovieDetailView: ViewCode {
             make.leading.equalToSuperview().offset(24)
             make.trailing.equalToSuperview().inset(24)
             make.top.equalTo(titleSectionStackView.snp.bottom).offset(16)
+        }
+        
+        aboutDividerView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(24)
+            make.trailing.equalToSuperview().inset(24)
+            make.top.equalTo(generalSectionStackView.snp.bottom).offset(24)
+        }
+        
+        aboutSectionStackView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(24)
+            make.trailing.equalToSuperview().inset(24)
+            make.top.equalTo(aboutDividerView.snp.bottom).offset(16)
         }
     }
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DividerView: UIView {
+class DividerView: UIView {
     init() {
         super.init(frame: .zero)
         self.setupViews()
@@ -18,7 +18,7 @@ final class DividerView: UIView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.noIntrinsicMetric, height: 0.2)
+        return CGSize(width: UIView.noIntrinsicMetric, height: 0.5)
     }
 }
 

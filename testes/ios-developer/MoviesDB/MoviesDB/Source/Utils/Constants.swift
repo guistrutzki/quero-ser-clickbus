@@ -28,5 +28,6 @@ enum Theme {
     static let light                    = UIColor("#ffffff")
     static let grey100                  = UIColor("#515151")
     static let grey200                  = UIColor("#BCBCBC")
+    static let grey200_50               = UIColor("#BCBCBC", alpha: 0.5)
     static let orange200                = UIColor("#FF8F71")
 }
