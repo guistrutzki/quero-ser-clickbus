@@ -18,11 +18,11 @@ class MovieDetailConfigurator {
         viewController.router = router
         viewController.interactor = interactor
         
+        router.viewController = viewController
+        
         interactor.presenter = presenter
         interactor.titleId = titleId
         
         presenter.viewController = viewController
-        
-        router.navigationController = viewController.navigationController
     }
 }

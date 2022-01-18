@@ -10,23 +10,35 @@ import Foundation
 protocol HomeInteractor: AnyObject {
     func viewDidLoad()
     func didSelectRow(at index: Int)
+    func didPullToRefresh()
 }
 
 class HomeInteractorImplementation: HomeInteractor {
     var presenter: HomePresenter?
+    var page = 1
     private var movies: [Movie] = []
     
-    func viewDidLoad() {
+    func loadMovies(page: Int) {
         MovieListWorker().fetchMovieList(
-            section: .popular, page: 1,
+            section: .popular, page: page,
             sucess: { response in
                 guard let movies = response?.results else { return }
-                self.movies = movies
-                self.presenter?.interactor(didRetrieveMovies: movies)
+                self.movies += movies
+                print(self.movies.count)
+                self.presenter?.interactor(didRetrieveMovies: self.movies)
             },
             failure: { error in
                 self.presenter?.interactor(didFailRetrieveMovies: error!)
             })
+    }
+    
+    func viewDidLoad() {
+        loadMovies(page: 1)
+    }
+    
+    func didPullToRefresh() {
+        page += 1
+        loadMovies(page: page)
     }
     
     func didSelectRow(at index: Int) {

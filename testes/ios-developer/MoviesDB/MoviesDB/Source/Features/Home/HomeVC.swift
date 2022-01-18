@@ -76,4 +76,11 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.interactor?.didSelectRow(at: indexPath.row)
     }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let tableViewOffset = scrollView.contentOffset.y + scrollView.frame.size.height
+        if (tableViewOffset >= scrollView.contentSize.height) {
+            self.interactor?.didPullToRefresh()
+        }
+    }
 }

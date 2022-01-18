@@ -223,6 +223,28 @@ class MovieDetailView: UIView {
         return stackView
     }()
     
+    private let crewTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: Fonts.poppinsMedium, size: 16)
+        label.textColor = Theme.light
+        label.text = "Equipe técnica"
+        return label
+    }()
+    
+    private let crewImageGallery: ImageGalleryView = {
+        let view = ImageGalleryView()
+        return view
+    }()
+    
+    private lazy var crewStackView: UIStackView = {
+        let dividerView = DividerView()
+        let stackView = UIStackView(arrangedSubviews: [dividerView, crewTitleLabel, crewImageGallery])
+        stackView.axis = .vertical
+        stackView.spacing = 12
+        stackView.setCustomSpacing(16, after: dividerView)
+        return stackView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -241,6 +263,7 @@ class MovieDetailView: UIView {
         genreCarouselView.updateView(with: configuration.genres)
         coverImageView.loadImage(path: configuration.backdropPath, size: .w500)
         castImageGallery.updateView(with: configuration.credits.formattedCast)
+        crewImageGallery.updateView(with: configuration.credits.formattedCrew)
     }
 }
 
@@ -259,6 +282,7 @@ extension MovieDetailView: ViewCode {
         contentView.addSubview(aboutDividerView)
         contentView.addSubview(aboutSectionStackView)
         contentView.addSubview(castStackView)
+        contentView.addSubview(crewStackView)
     }
     
     func configureSubviewsConstraints() {
@@ -328,6 +352,11 @@ extension MovieDetailView: ViewCode {
         castStackView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(24)
             make.top.equalTo(aboutSectionStackView.snp.bottom).offset(16)
+        }
+        
+        crewStackView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(24)
+            make.top.equalTo(castStackView.snp.bottom).offset(16)
         }
     }
     

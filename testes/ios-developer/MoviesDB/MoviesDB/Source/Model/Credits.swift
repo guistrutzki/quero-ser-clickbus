@@ -20,4 +20,10 @@ struct Credits: Decodable {
         }
     }
     
+    var formattedCrew: [ImageGalleryViewConfiguration.ImageGalleryModel] {
+        crew.compactMap {
+            ImageGalleryViewConfiguration.ImageGalleryModel(path: $0.profilePath ?? "",
+                                                            description: $0.name )
+        }
+    }
 }

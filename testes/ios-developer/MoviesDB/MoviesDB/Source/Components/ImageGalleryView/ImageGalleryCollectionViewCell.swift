@@ -12,11 +12,12 @@ class ImageGalleryCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 8
         imageView.snp.makeConstraints { make in
-            make.width.equalTo(140)
+            make.width.equalTo(120)
             make.height.equalTo(140)
         }
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleToFill
+        imageView.backgroundColor = Theme.light_20
         return imageView
     }()
     

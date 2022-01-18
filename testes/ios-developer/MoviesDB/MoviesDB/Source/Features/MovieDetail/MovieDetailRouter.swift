@@ -8,15 +8,13 @@
 import UIKit
 
 protocol MovieDetailRouter: AnyObject {
-    var navigationController: UINavigationController? { get }
     func routeToHome()
 }
 
 class MovieDetailRouterImplementation: MovieDetailRouter {
-    weak var navigationController: UINavigationController?
+    weak var viewController: MovieDetailVC?
     
     func routeToHome() {
-        print("xd", navigationController)
-        navigationController?.popViewController(animated: true)
+        viewController?.navigationController?.popViewController(animated: true)
     }
 }

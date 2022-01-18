@@ -28,6 +28,9 @@ class MovieDetailVC: UIViewController {
         let tap = UITapGestureRecognizer(target: self,
                                          action: #selector(didTappedBackButton(_:)))
         movieDetailView?.backNavigationView.addGestureRecognizer(tap)
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.edgesForExtendedLayout = []
+        self.extendedLayoutIncludesOpaqueBars = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
