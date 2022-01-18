@@ -10,7 +10,18 @@ import Foundation
 class MovieDetailConfigurator {
     static func configureModule(titleId: String, viewController: MovieDetailVC) {
         let view = MovieDetailView()
+        let router = MovieDetailRouterImplementation()
+        let interactor = MovieDetailInteractorImplementation()
+        let presenter = MovieDetailPresenterImplementation()
         
         viewController.movieDetailView = view
+        viewController.router = router
+        viewController.interactor = interactor
+        
+        interactor.presenter = presenter
+        
+        presenter.viewController = viewController
+        
+        router.navigationController = viewController.navigationController
     }
 }

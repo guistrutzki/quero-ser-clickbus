@@ -91,27 +91,11 @@ class MovieCardCell: UITableViewCell {
         votesCountLabel.attributedText = votesAttributedString
     }
     
-    private func loadImage(_ imagePath: String) {
-        coverImageView.kf.indicatorType = .activity
-        let retry = DelayRetryStrategy(maxRetryCount: 5,
-                                       retryInterval: .seconds(3))
-        coverImageView.kf.setImage(with: URL(string: MovieAPI.build(image: imagePath, size: .w200)),
-                                   options: [.retryStrategy(retry),
-                                             .transition(ImageTransition
-                                                            .fade(2))]) { result in
-            switch result {
-            case .failure:
-                self.coverImageView.image = #imageLiteral(resourceName: "placeholder-image")
-            default: break
-            }
-        }
-    }
-    
     public func updateView(with configuration: MovieCardCellModel) {
         title.text = configuration.title
         averageLabel.text = configuration.average
         votesCountLabel.text = configuration.votesCount
-        loadImage(configuration.coverImage)
+        coverImageView.loadImage(path: configuration.coverImage, size: .w500)
         configTextValue()
         
     }

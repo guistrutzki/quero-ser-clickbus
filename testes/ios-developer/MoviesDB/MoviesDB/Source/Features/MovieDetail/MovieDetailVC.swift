@@ -7,8 +7,15 @@
 
 import UIKit
 
+protocol MovieDetailPresenterOutput: AnyObject {
+    func presenter(didRetrieveMovieDetails movieDetails: MovieDetails)
+    func presenter(didFailRetrieveMovieDetails message: String)
+}
+
 class MovieDetailVC: UIViewController {
     var movieDetailView: MovieDetailView?
+    var router: MovieDetailRouter?
+    var interactor: MovieDetailInteractor?
     
     override func loadView() {
         super.loadView()
@@ -17,6 +24,8 @@ class MovieDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        interactor?.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,3 +44,12 @@ class MovieDetailVC: UIViewController {
     }
 }
 
+extension MovieDetailVC: MovieDetailPresenterOutput {
+    func presenter(didRetrieveMovieDetails movieDetails: MovieDetails) {
+        movieDetailView?.updateView(with: movieDetails)
+    }
+    
+    func presenter(didFailRetrieveMovieDetails message: String) {
+        print(message)
+    }
+}

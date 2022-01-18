@@ -17,14 +17,14 @@ class GenreCarouselCollectionViewCell: UICollectionViewCell {
         view.layer.cornerRadius = 8
         view.layer.borderWidth = 1
         view.layer.borderColor = Theme.grey200_50.cgColor
-        view.backgroundColor = Theme.grey200
+        view.backgroundColor = .clear
         return view
     }()
     
     private let genreLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: Fonts.poppinsRegular, size: 12)
-        label.textColor = Theme.light
+        label.textColor = Theme.grey200
         return label
     }()
     

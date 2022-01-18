@@ -11,9 +11,9 @@ extension Date {
 
     var stringFormat: String {
         let formatter = DateFormatter()
-        formatter.dateStyle = .long
+        formatter.dateStyle = .short
         formatter.timeStyle = .none
-        formatter.locale = .current
+        formatter.locale = Locale(identifier: "pt_BR")
         return formatter.string(from: self)
     }
 }

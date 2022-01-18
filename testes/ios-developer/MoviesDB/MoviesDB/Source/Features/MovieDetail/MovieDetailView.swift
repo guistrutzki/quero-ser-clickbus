@@ -32,7 +32,6 @@ class MovieDetailView: UIView {
         let label = UILabel()
         label.font = UIFont(name: Fonts.poppinsMedium, size: 24)
         label.textColor = Theme.light
-        label.text = "Star Wars: The Last Jedi"
         return label
     }()
     
@@ -51,7 +50,6 @@ class MovieDetailView: UIView {
        let label = UILabel()
         label.font = UIFont(name: Fonts.poppinsRegular, size: 12)
         label.textColor = Theme.grey200
-        label.text = "152 minutes"
         return label
     }()
     
@@ -77,7 +75,6 @@ class MovieDetailView: UIView {
         let label = UILabel()
         label.font = UIFont(name: Fonts.poppinsRegular, size: 12)
         label.textColor = Theme.grey200
-        label.text = "7.0 (IMDb)"
         return label
     }()
     
@@ -115,7 +112,6 @@ class MovieDetailView: UIView {
         let label = UILabel()
         label.font = UIFont(name: Fonts.poppinsRegular, size: 12)
         label.textColor = Theme.grey200
-        label.text = "09/12/2017"
         return label
     }()
     
@@ -167,7 +163,6 @@ class MovieDetailView: UIView {
         label.font = UIFont(name: Fonts.poppinsRegular, size: 12)
         label.textColor = Theme.grey200
         label.numberOfLines = 0
-        label.text = "Rey (Daisy Ridley) finally manages to find the legendary Jedi knight, Luke Skywalker (Mark Hamill) on an island with a magical aura. The heroes of The Force Awakens including Leia, Finn"
         return label
     }()
     
@@ -190,6 +185,16 @@ class MovieDetailView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func updateView(with configuration: MovieDetails) {
+        titleLabel.text = configuration.title
+        durationLabel.text = "\(configuration.runtime) minutos"
+        ratingLabel.text = "\(configuration.voteAverage) (IMDb)"
+        releaseValueLabel.text = configuration.relaseDateFormatted
+        aboutTextLabel.text = configuration.overview
+        genreCarouselView.updateView(with: configuration.genres)
+        coverImageView.loadImage(path: configuration.backdropPath, size: .w500)
     }
 }
 

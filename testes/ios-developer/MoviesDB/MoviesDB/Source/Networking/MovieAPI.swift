@@ -27,9 +27,7 @@ struct MovieAPI {
     static let imageURL: String = "https://image.tmdb.org/t/p"
     static let genreURL: String = "\(MovieAPI.baseURL)/genre/movie/list?api_key=\(MovieAPI.key)"
     
-    static var language: String {
-        return Locale.current.collatorIdentifier ?? "pt-BR"
-    }
+    static var language: String { "pt-BR" }
     
     static func build(image: String, size: ImageSize) -> String {
         return "\(MovieAPI.imageURL)/\(size.rawValue)/\(image)"
