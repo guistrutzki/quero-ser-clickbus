@@ -19,6 +19,7 @@ class MovieDetailConfigurator {
         viewController.interactor = interactor
         
         interactor.presenter = presenter
+        interactor.titleId = titleId
         
         presenter.viewController = viewController
         

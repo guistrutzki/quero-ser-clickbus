@@ -16,6 +16,7 @@ class MovieDetailRouterImplementation: MovieDetailRouter {
     weak var navigationController: UINavigationController?
     
     func routeToHome() {
+        print("xd", navigationController)
         navigationController?.popViewController(animated: true)
     }
 }

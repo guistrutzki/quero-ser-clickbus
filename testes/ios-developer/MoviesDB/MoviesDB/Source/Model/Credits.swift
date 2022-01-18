@@ -13,4 +13,11 @@ struct Credits: Decodable {
     
     let crew: [Crew]
     
+    var formattedCast: [ImageGalleryViewConfiguration.ImageGalleryModel] {
+        cast.compactMap {
+            ImageGalleryViewConfiguration.ImageGalleryModel(path: $0.profilePath ?? "",
+                                                            description: $0.name )
+        }
+    }
+    
 }

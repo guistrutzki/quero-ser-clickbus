@@ -12,7 +12,7 @@ class MovieDetailView: UIView {
         let scrollView = UIScrollView(frame: .zero)
         scrollView.showsVerticalScrollIndicator = false
         scrollView.backgroundColor = Theme.dark
-        scrollView.contentInsetAdjustmentBehavior = .never
+//        scrollView.contentInsetAdjustmentBehavior = .never
         return scrollView
     }()
     
@@ -24,7 +24,30 @@ class MovieDetailView: UIView {
     
     private let coverImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .red
+        return imageView
+    }()
+    
+    private let imageLayerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = Theme.dark_35
+        return view
+    }()
+    
+    let backNavigationView: UIView = {
+        let view = UIView()
+        view.backgroundColor = Theme.light_20
+        view.layer.cornerRadius = 25
+        return view
+    }()
+    
+    private let backIconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = SFSymbols.arrowLeft
+        imageView.tintColor = Theme.light
+        
+        imageView.snp.makeConstraints { make in
+            make.height.equalTo(20)
+        }
         return imageView
     }()
     
@@ -178,6 +201,28 @@ class MovieDetailView: UIView {
         return stackView
     }()
     
+    private let castTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: Fonts.poppinsMedium, size: 16)
+        label.textColor = Theme.light
+        label.text = "Atores"
+        return label
+    }()
+    
+    private let castImageGallery: ImageGalleryView = {
+        let view = ImageGalleryView()
+        return view
+    }()
+    
+    private lazy var castStackView: UIStackView = {
+        let dividerView = DividerView()
+        let stackView = UIStackView(arrangedSubviews: [dividerView, castTitleLabel, castImageGallery])
+        stackView.axis = .vertical
+        stackView.spacing = 12
+        stackView.setCustomSpacing(16, after: dividerView)
+        return stackView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -195,6 +240,7 @@ class MovieDetailView: UIView {
         aboutTextLabel.text = configuration.overview
         genreCarouselView.updateView(with: configuration.genres)
         coverImageView.loadImage(path: configuration.backdropPath, size: .w500)
+        castImageGallery.updateView(with: configuration.credits.formattedCast)
     }
 }
 
@@ -203,12 +249,16 @@ extension MovieDetailView: ViewCode {
         addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(coverImageView)
+        contentView.addSubview(imageLayerView)
+        imageLayerView.addSubview(backNavigationView)
+        backNavigationView.addSubview(backIconImageView)
         contentView.addSubview(titleSectionStackView)
         titleDetailView.addSubview(durationStackView)
         titleDetailView.addSubview(ratingStackView)
         contentView.addSubview(generalSectionStackView)
         contentView.addSubview(aboutDividerView)
         contentView.addSubview(aboutSectionStackView)
+        contentView.addSubview(castStackView)
     }
     
     func configureSubviewsConstraints() {
@@ -228,9 +278,24 @@ extension MovieDetailView: ViewCode {
             make.height.equalTo(300)
         }
         
+        imageLayerView.snp.makeConstraints { make in
+            make.leading.top.trailing.equalToSuperview()
+            make.height.equalTo(300)
+        }
+        
+        backNavigationView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.top.equalTo(safeAreaLayoutGuide).offset(10)
+            make.width.height.equalTo(50)
+        }
+        
+        backIconImageView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
+        }
+        
         titleSectionStackView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(24)
-            make.trailing.equalToSuperview().inset(24)
+            make.leading.trailing.equalToSuperview().inset(24)
             make.top.equalTo(coverImageView.snp.bottom).offset(24)
         }
         
@@ -258,6 +323,11 @@ extension MovieDetailView: ViewCode {
             make.leading.equalToSuperview().offset(24)
             make.trailing.equalToSuperview().inset(24)
             make.top.equalTo(aboutDividerView.snp.bottom).offset(16)
+        }
+        
+        castStackView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(24)
+            make.top.equalTo(aboutSectionStackView.snp.bottom).offset(16)
         }
     }
     

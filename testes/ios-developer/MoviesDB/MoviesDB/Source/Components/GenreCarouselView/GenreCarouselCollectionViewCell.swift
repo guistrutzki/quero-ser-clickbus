@@ -58,7 +58,7 @@ extension GenreCarouselCollectionViewCell: ViewCode {
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
         }
-    }
+    } 
     
     func configureAdditionalBehaviors() {}
 }

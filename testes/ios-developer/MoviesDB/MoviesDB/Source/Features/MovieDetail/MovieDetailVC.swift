@@ -24,8 +24,10 @@ class MovieDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         interactor?.viewDidLoad()
+        let tap = UITapGestureRecognizer(target: self,
+                                         action: #selector(didTappedBackButton(_:)))
+        movieDetailView?.backNavigationView.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +43,10 @@ class MovieDetailVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    @objc func didTappedBackButton(_ sender: UITapGestureRecognizer) {
+        router?.routeToHome()
     }
 }
 
