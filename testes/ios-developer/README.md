@@ -30,9 +30,7 @@
   </kbd>
 </p>
 
-# :wrench: Install instructions
-
-### Getting Started
+## :wrench: Getting Started
 
 - 1.1) `git clone https://github.com/guistrutzki/quero-ser-clickbus.git`
 - 1.2) `cd quero-ser-clickbus/testes/ios-developer/MoviesDB/` - cd into your newly created project directory.
