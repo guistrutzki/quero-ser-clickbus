@@ -46,6 +46,11 @@
 -   [Kingfisher](https://github.com/onevcat/Kingfisher)
 -   [TTGTagCollectionView](https://github.com/zekunyan/TTGTagCollectionView)
 
+## :lipstick: **Prototype**
+
+-   [General Conception](https://www.behance.net/gallery/97840987/FILMINGO-Online-Cinema-Mobile-UX-UI?tracking_source=search_projects_recommended%7Cmovie%20mobile%20app)
+-   [Detail Screen](https://www.figma.com/file/eGV3JtyvNvwN3pkaK4ckve/Movie-Streaming-App-(Community)?node-id=90%3A102)
+
 ## :construction_worker: **To Be Continue**
 
 * Unit tests
