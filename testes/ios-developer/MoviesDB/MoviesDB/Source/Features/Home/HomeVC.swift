@@ -28,6 +28,11 @@ class HomeVC: UIViewController {
         
         navigationItem.title = "Filmes Populares"
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: SFSymbols.filter,
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(addFilter))
+        navigationItem.rightBarButtonItem?.tintColor = Theme.light
         homeView?.tableView.delegate = self
         homeView?.tableView.dataSource = self
     }
@@ -36,6 +41,10 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         
         interactor?.viewDidLoad()
+    }
+    
+    @objc func addFilter(_ sender: UITapGestureRecognizer) {
+        print("fonfon")
     }
 }
 

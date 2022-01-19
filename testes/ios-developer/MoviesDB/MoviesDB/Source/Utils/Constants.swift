@@ -16,6 +16,7 @@ enum SFSymbols {
     static let star                     = UIImage(systemName: "star.fill")
     static let clock                    = UIImage(systemName: "clock")
     static let arrowLeft                = UIImage(systemName: "chevron.left")
+    static let filter                   = UIImage(systemName: "slider.vertical.3")
 }
 
 enum Fonts {

@@ -14,9 +14,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        let homeVC = HomeVC()
+        let navigationController = UINavigationController(rootViewController: homeVC)
+        HomeConfigurator.configureModule(viewController: homeVC)
+        
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationBar.barStyle = .black
 
         self.window = UIWindow(windowScene: windowScene)
-        self.window?.rootViewController = TabBarController()
+        self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
     }
 
