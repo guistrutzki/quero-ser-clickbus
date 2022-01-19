@@ -6,7 +6,7 @@
   <img src="./app-logo.png" /> 
   <br />
   <br />
-  <a target="_blank" href="https://github.com/guistrutzki/quero-ser-clickbus/blob/master/testes/ios-developer/INSTRUCTIONS.md"> Challenge Instructions </a>
+  <a target="_blank" href="https://github.com/guistrutzki/quero-ser-clickbus/blob/master/testes/ios-developer/INSTRUCTIONS.MD"> Challenge Instructions </a>
  </div>
 
  <br />
