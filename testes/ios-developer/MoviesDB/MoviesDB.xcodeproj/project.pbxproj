@@ -48,6 +48,13 @@
 		5B0218CD2795409600E07CC0 /* MovieDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0218CC2795409600E07CC0 /* MovieDetailConfigurator.swift */; };
 		5B0218CF2795414A00E07CC0 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0218CE2795414A00E07CC0 /* HomeRouter.swift */; };
 		5B0218D127961D6300E07CC0 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0218D027961D6300E07CC0 /* UIColor+Extensions.swift */; };
+		5B0D9D1527979878007D42F4 /* FilterModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D9D1427979878007D42F4 /* FilterModalVC.swift */; };
+		5B0D9D1727979CAC007D42F4 /* FilterModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D9D1627979CAC007D42F4 /* FilterModalView.swift */; };
+		5B0D9D192797A0A7007D42F4 /* FilterModalConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D9D182797A0A7007D42F4 /* FilterModalConfigurator.swift */; };
+		5B0D9D1B2797A5F7007D42F4 /* FilterModalRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D9D1A2797A5F7007D42F4 /* FilterModalRouter.swift */; };
+		5B0D9D1D2797B2A6007D42F4 /* FilterModalInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D9D1C2797B2A6007D42F4 /* FilterModalInteractor.swift */; };
+		5B0D9D1F2797B476007D42F4 /* FilterModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D9D1E2797B476007D42F4 /* FilterModalPresenter.swift */; };
+		5B0D9D212797C1BD007D42F4 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D9D202797C1BD007D42F4 /* Array+Extensions.swift */; };
 		5B658A8527963003003EF013 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B658A8227962DCA003EF013 /* Poppins-Bold.ttf */; };
 		5B658A8627963006003EF013 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B658A8327962DCA003EF013 /* Poppins-Medium.ttf */; };
 		5B658A8727963008003EF013 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B658A8427962DCB003EF013 /* Poppins-Regular.ttf */; };
@@ -132,6 +139,13 @@
 		5B0218CC2795409600E07CC0 /* MovieDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailConfigurator.swift; sourceTree = "<group>"; };
 		5B0218CE2795414A00E07CC0 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		5B0218D027961D6300E07CC0 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		5B0D9D1427979878007D42F4 /* FilterModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModalVC.swift; sourceTree = "<group>"; };
+		5B0D9D1627979CAC007D42F4 /* FilterModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModalView.swift; sourceTree = "<group>"; };
+		5B0D9D182797A0A7007D42F4 /* FilterModalConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModalConfigurator.swift; sourceTree = "<group>"; };
+		5B0D9D1A2797A5F7007D42F4 /* FilterModalRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModalRouter.swift; sourceTree = "<group>"; };
+		5B0D9D1C2797B2A6007D42F4 /* FilterModalInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModalInteractor.swift; sourceTree = "<group>"; };
+		5B0D9D1E2797B476007D42F4 /* FilterModalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModalPresenter.swift; sourceTree = "<group>"; };
+		5B0D9D202797C1BD007D42F4 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		5B658A8227962DCA003EF013 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		5B658A8327962DCA003EF013 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		5B658A8427962DCB003EF013 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -295,6 +309,7 @@
 		1599F1BD2530D0E40074241E /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				5B0D9D1327979842007D42F4 /* FilterModal */,
 				5B0218C7279523E700E07CC0 /* MovieDetail */,
 				5B0218B327945BA200E07CC0 /* Home */,
 				1599F1582530CC790074241E /* ViewController.swift */,
@@ -361,6 +376,7 @@
 				5B0218D027961D6300E07CC0 /* UIColor+Extensions.swift */,
 				5B658A8F279664B0003EF013 /* UICollectionViewCell+Extensions.swift */,
 				5B658A9727968D08003EF013 /* UIImageView+Extensions.swift */,
+				5B0D9D202797C1BD007D42F4 /* Array+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -427,6 +443,19 @@
 				5B658A95279675B4003EF013 /* MovieDetailRouter.swift */,
 			);
 			path = MovieDetail;
+			sourceTree = "<group>";
+		};
+		5B0D9D1327979842007D42F4 /* FilterModal */ = {
+			isa = PBXGroup;
+			children = (
+				5B0D9D1427979878007D42F4 /* FilterModalVC.swift */,
+				5B0D9D1627979CAC007D42F4 /* FilterModalView.swift */,
+				5B0D9D182797A0A7007D42F4 /* FilterModalConfigurator.swift */,
+				5B0D9D1A2797A5F7007D42F4 /* FilterModalRouter.swift */,
+				5B0D9D1C2797B2A6007D42F4 /* FilterModalInteractor.swift */,
+				5B0D9D1E2797B476007D42F4 /* FilterModalPresenter.swift */,
+			);
+			path = FilterModal;
 			sourceTree = "<group>";
 		};
 		5B658A8127962DB1003EF013 /* fonts */ = {
@@ -693,6 +722,7 @@
 				5B658A90279664B0003EF013 /* UICollectionViewCell+Extensions.swift in Sources */,
 				5B0218D127961D6300E07CC0 /* UIColor+Extensions.swift in Sources */,
 				1599F1C12530D1180074241E /* DefaultDecoder.swift in Sources */,
+				5B0D9D1F2797B476007D42F4 /* FilterModalPresenter.swift in Sources */,
 				5B658A94279672D4003EF013 /* MovieDetailPresenter.swift in Sources */,
 				1599F1EE2530D4D20074241E /* Movie.swift in Sources */,
 				5B658A892796457E003EF013 /* DividerView.swift in Sources */,
@@ -705,11 +735,13 @@
 				5B0218C227949C1300E07CC0 /* HomeConfigurator.swift in Sources */,
 				5B0218C42794EAA300E07CC0 /* HomeInteractor.swift in Sources */,
 				1599F1D22530D2580074241E /* MovieAPI.swift in Sources */,
+				5B0D9D1D2797B2A6007D42F4 /* FilterModalInteractor.swift in Sources */,
 				1599F2242530DB000074241E /* Crew.swift in Sources */,
 				5B658A9D2796EE54003EF013 /* ImageGalleryView.swift in Sources */,
 				5B658A8B279657B8003EF013 /* GenreCarouselView.swift in Sources */,
 				5B0218BB279489FD00E07CC0 /* ViewCode.swift in Sources */,
 				5B0218CB2795244500E07CC0 /* MovieDetailView.swift in Sources */,
+				5B0D9D1527979878007D42F4 /* FilterModalVC.swift in Sources */,
 				5B0218B527945EA700E07CC0 /* HomeVC.swift in Sources */,
 				5B0218C62794F41800E07CC0 /* HomePresenter.swift in Sources */,
 				5B0218C9279523FF00E07CC0 /* MovieDetailVC.swift in Sources */,
@@ -726,6 +758,7 @@
 				5B0218CF2795414A00E07CC0 /* HomeRouter.swift in Sources */,
 				1599F2292530DB0B0074241E /* Cast.swift in Sources */,
 				5B658A92279671BC003EF013 /* MovieDetailInteractor.swift in Sources */,
+				5B0D9D1B2797A5F7007D42F4 /* FilterModalRouter.swift in Sources */,
 				1599F2122530DA860074241E /* MovieDetails.swift in Sources */,
 				1599F1552530CC790074241E /* AppDelegate.swift in Sources */,
 				5B0218CD2795409600E07CC0 /* MovieDetailConfigurator.swift in Sources */,
@@ -733,7 +766,10 @@
 				1599F2322530DF310074241E /* GenreListWorker.swift in Sources */,
 				1599F1982530CFDB0074241E /* ResquestData.swift in Sources */,
 				1599F1E02530D4170074241E /* MovieListWorker.swift in Sources */,
+				5B0D9D212797C1BD007D42F4 /* Array+Extensions.swift in Sources */,
 				1599F21F2530DAF80074241E /* Credits.swift in Sources */,
+				5B0D9D192797A0A7007D42F4 /* FilterModalConfigurator.swift in Sources */,
+				5B0D9D1727979CAC007D42F4 /* FilterModalView.swift in Sources */,
 				1599F1C92530D1BC0074241E /* SnakeCaseDecoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -40,14 +40,14 @@ class MovieCardCell: UITableViewCell {
     
     private var averageLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .green
+        label.textColor = Theme.green200
         
         return label
     }()
     
     private var votesCountLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .green
+        label.textColor = Theme.green200
         return label
     }()
     

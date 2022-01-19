@@ -9,6 +9,7 @@ import UIKit
 
 enum Txt {
     static let home                     = "Início"
+    static let popularMovies            = "Filmes Populares"
 }
 
 enum SFSymbols {
@@ -36,4 +37,6 @@ enum Theme {
     static let grey200                  = UIColor("#BCBCBC")
     static let grey200_50               = UIColor("#BCBCBC", alpha: 0.5)
     static let orange200                = UIColor("#FF8F71")
+    static let green200                 = UIColor("#00dea1")
+    static let green200_50              = UIColor("#00dea1", alpha: 0.5)
 }

@@ -25,7 +25,7 @@ struct MovieAPI {
     static let version: Int = 3
     static let baseURL: String = "https://api.themoviedb.org/\(MovieAPI.version)"
     static let imageURL: String = "https://image.tmdb.org/t/p"
-    static let genreURL: String = "\(MovieAPI.baseURL)/genre/movie/list?api_key=\(MovieAPI.key)"
+    static let genreURL: String = "\(MovieAPI.baseURL)/genre/movie/list?api_key=\(MovieAPI.key)&language=\(language)"
     
     static var language: String { "pt-BR" }
     

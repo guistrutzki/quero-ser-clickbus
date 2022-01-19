@@ -26,7 +26,7 @@ class HomeVC: UIViewController {
         super.loadView()
         self.view = homeView
         
-        navigationItem.title = "Filmes Populares"
+        navigationItem.title = Txt.popularMovies
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: SFSymbols.filter,
                                                             style: .plain,
@@ -44,7 +44,7 @@ class HomeVC: UIViewController {
     }
     
     @objc func addFilter(_ sender: UITapGestureRecognizer) {
-        print("fonfon")
+        router?.presentFilterModal()
     }
 }
 

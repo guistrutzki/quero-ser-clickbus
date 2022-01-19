@@ -24,7 +24,6 @@ class HomeInteractorImplementation: HomeInteractor {
             sucess: { response in
                 guard let movies = response?.results else { return }
                 self.movies += movies
-                print(self.movies.count)
                 self.presenter?.interactor(didRetrieveMovies: self.movies)
             },
             failure: { error in
